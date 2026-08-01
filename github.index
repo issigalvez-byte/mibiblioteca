@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultorio Médico - Horarios y Citas</title>
+    <style>
+        :root {
+            --primary-color: #0f766e; /* Azul verdoso médico */
+            --secondary-color: #14b8a6;
+            --background-color: #f0fdfa;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+
+        /* Estilos de la Tabla */
+        .table-container {
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f0fdfa;
+        }
+
+        /* Estilos del Formulario */
+        form {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+        }
+
+        /* Estilos específicos para Radio Buttons de Género */
+        .gender-options {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding-top: 5px;
+        }
+
+        .gender-options label {
+            display: inline-flex;
+            align-items: center;
+            font-weight: normal;
+            color: var(--text-color);
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .gender-options input[type="radio"] {
+            margin-right: 8px;
+            accent-color: var(--primary-color);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #0d5c55;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Consultorio Médico Familiar</h1>
+            <p>Cuidando de ti y de los tuyos con la mejor atención profesional.</p>
+        </header>
+
+        <!-- Sección de Horarios -->
+        <section>
+            <h2>Horario de Atención</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Días</th>
+                            <th>Horario de Mañana</th>
+                            <th>Horario de Tarde</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lunes a Viernes</td>
+                            <td>08:00 AM - 01:00 PM</td>
+                            <td>03:00 PM - 08:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Sábados</td>
+                            <td>09:00 AM - 02:00 PM</td>
+                            <td>Previo acuerdo</td>
+                        </tr>
+                        <tr>
+                            <td>Domingos y Festivos</td>
+                            <td colspan="2" style="text-align: center; color: #b91c1c; font-weight: bold;">Cerrado (Solo Urgencias)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Sección de Registro / Citas -->
+        <section>
+            <h2>Solicitud de Consulta</h2>
+            <form action="#" method="POST">
+                
+                <!-- 1. Género -->
+                <div class="form-group">
+                    <label>Género</label>
+                    <div class="gender-options">
+                        <label>
+                            <input type="radio" name="genero" value="femenino" required> Femenino
+                        </label>
+                        <label>
+                            <input type="radio" name="genero" value="masculino"> Masculino
+                        </label>
+                        <label>
+                            <input type="radio" name="genero" value="otro"> Otro / Prefiero no decirlo
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 2. Edad -->
+                <div class="form-group">
+                    <label for="edad">Edad</label>
+                    <input type="number" id="edad" name="edad" min="0" max="120" placeholder="Ej. 28" required>
+                </div>
+
+                <!-- 3. Día de asistencia -->
+                <div class="form-group">
+                    <label for="dia_consulta">Día en el que asistirá a consulta</label>
+                    <input type="date" id="dia_consulta" name="dia_consulta" required>
+                </div>
+
+                <!-- 4. Comentarios -->
+                <div class="form-group">
+                    <label for="comentarios">Comentarios o Motivo de Consulta</label>
+                    <textarea id="comentarios" name="comentarios" placeholder="Cuéntanos brevemente el motivo de tu visita o cualquier detalle relevante..."></textarea>
+                </div>
+
+                <!-- Botón de Envío -->
+                <button type="submit">Agendar Pre-cita</button>
+            </form>
+        </section>
+    </div>
+
+</body>
+</html>
